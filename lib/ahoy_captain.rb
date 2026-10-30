@@ -9,8 +9,13 @@ require 'ahoy_captain/ahoy/visit_methods'
 require 'ahoy_captain/ahoy/event_methods'
 
 require 'importmap-rails'
+# Bundled (non-default) stdlib gems from Ruby 3.4+ must be required explicitly.
+require 'base64'
 
 module AhoyCaptain
+  # NOTE: a Struct (not OpenStruct) so we don't depend on a bundled stdlib gem.
+  NoneOption = Struct.new(:text, :value)
+
   class << self
     attr_accessor :configuration
 
@@ -55,7 +60,7 @@ module AhoyCaptain
     end
 
     def none
-      @none ||= OpenStruct.new(text: "(none)", value: "!none!")
+      @none ||= NoneOption.new("(none)", "!none!")
     end
   end
 end

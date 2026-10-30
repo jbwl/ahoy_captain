@@ -2,6 +2,10 @@ require_relative "boot"
 
 require "rails/all"
 
+# Rails 8 no longer pulls in an asset pipeline via `rails/all`; the dummy app
+# uses Sprockets so the engine's assets/importmap can be exercised in tests.
+require "sprockets/railtie"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

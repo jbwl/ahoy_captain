@@ -58,7 +58,7 @@ module AhoyCaptain
 
       class_methods do
         def ransackable_attributes(auth_object = nil)
-          super + [ "action", "controller", "id",  "name", "page", "properties", "time", "url", "user_id", "visit_id", "goal"] + self._ransackers.keys
+          authorizable_ransackable_attributes + [ "action", "controller", "id",  "name", "page", "properties", "time", "url", "user_id", "visit_id", "goal"] + self._ransackers.keys
         end
 
         def ransackable_scopes(auth_object = nil)
@@ -66,7 +66,7 @@ module AhoyCaptain
         end
 
         def ransackable_associations(auth_object = nil)
-          super + [:visit]
+          authorizable_ransackable_associations + [:visit]
         end
       end
     end

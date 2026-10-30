@@ -2,7 +2,23 @@
 
 ## Unreleased
 
-Nothing, yet. 
+### Changed
+* Pagy upgraded to 43 (complete API rewrite):
+  * `Pagy::Backend` → `Pagy::Method`
+  * `pagy(collection, ...)` → `pagy(:offset, collection, ...)`
+  * `pagy_nav(@pagy)` → `@pagy.series_nav`
+  * `Pagy::Frontend` include removed; pagination CSS updated for the new `series-nav` markup
+* Ransack dependency bumped to >= 4 (now uses `authorizable_ransackable_attributes` / `_associations`)
+* Rails 8.1 compatibility: asset initializers no longer assume an asset pipeline is present
+* Ruby 3.4 compatibility (bundled, non-default stdlib gems):
+  * declare the `csv` dependency
+  * `require "base64"`
+  * replace `OpenStruct` with a `Struct` (no longer a default gem)
+* Dropped unused `sassc` and `sqlite3` development dependencies
+
+### Fixed (test harness)
+* Dummy app's `ApplicationRecord` was not abstract, breaking instantiation of any record
+* Load an asset pipeline explicitly (Rails 8's `rails/all` no longer does)
 
 ## Version 1.2.0 (Jan 19, 2026)
 

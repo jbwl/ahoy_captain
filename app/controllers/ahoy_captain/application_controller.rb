@@ -1,6 +1,6 @@
 module AhoyCaptain
   class ApplicationController < ActionController::Base
-    include Pagy::Backend
+    include Pagy::Method
     include CompareMode
     include RangeOptions
     include Rangeable
@@ -59,7 +59,7 @@ module AhoyCaptain
     # Only paginate details requests requests
     def paginate(collection)
       if paginate?
-        pagy, results = pagy(collection, page: params[:page])
+        pagy, results = pagy(:offset, collection, page: params[:page])
         @pagination = pagy
         return results
       end

@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 6"
-  spec.add_dependency "ransack", ">= 2.3"
+  spec.add_dependency "ransack", ">= 4"
   spec.add_dependency "turbo-rails", ">= 1.2"
   spec.add_dependency "view_component", ">= 3"
   spec.add_dependency "importmap-rails", ">= 2"
@@ -26,14 +26,14 @@ Gem::Specification.new do |spec|
   spec.add_dependency "ahoy_matey", ">= 1.1"
   spec.add_dependency "chartkick", ">= 4"
   spec.add_dependency "groupdate", ">= 5"
-  spec.add_dependency "pagy", ">= 4"
+  spec.add_dependency "pagy", "~> 43.0"
   spec.add_dependency "rubyzip"
+  spec.add_dependency "csv"
 
   spec.add_development_dependency "rails", ">= 6"
   spec.add_development_dependency "sprockets-rails"
   spec.add_development_dependency "better_errors"
   spec.add_development_dependency "binding_of_caller"
-  spec.add_development_dependency "sassc"
   spec.add_development_dependency "puma"
   spec.add_development_dependency "pg"
   spec.add_development_dependency 'factory_bot_rails'
@@ -41,5 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-rails'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'sqlite3'
 end
